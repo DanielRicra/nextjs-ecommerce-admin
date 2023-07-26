@@ -1,0 +1,26 @@
+{
+   "editor.formatOnSave": true,
+   "editor.codeActionsOnSave": {
+      "source.fixAll.rome": true,
+      "source.organizeImports": true  
+   },
+   "[javascript]": {
+      "editor.defaultFormatter": "rome.rome"
+   },
+   "[javascriptreact]": {
+      "editor.defaultFormatter": "rome.rome"
+   },
+   "[typescript]": {
+      "editor.defaultFormatter": "rome.rome"
+   },
+   "[typescriptreact]": {
+      "editor.defaultFormatter": "rome.rome"
+   },
+   "cSpell.words": [
+      "Balmoore",
+      "overperforming",
+      "sonner",
+      "underperforming",
+      "Whitehouse"
+   ]
+}
