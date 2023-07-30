@@ -5,6 +5,7 @@ import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 
 import Heading from "@/components/heading";
+import ApiList from "@/components/ui/api-list";
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
 import { Separator } from "@/components/ui/separator";
@@ -46,6 +47,12 @@ export const BillboardClient = () => {
 				data={formattedBillboards}
 				searchKey="label"
 			/>
+
+			<Heading title="API" description="API calls for billboards" />
+
+			<Separator />
+
+			<ApiList entityIdName="billboardId" entityName="billboards" />
 		</>
 	);
 };
