@@ -23,7 +23,7 @@ import {
 import ImageUpload from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import useOrigin from "@/hooks/use-origin";
+import useStoreBillboards from "@/hooks/useStoreBillboards";
 
 interface BillboardFormProps {
 	initialData: Billboard | null;
@@ -39,10 +39,11 @@ type BillboardFormValues = z.infer<typeof formSchema>;
 const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
 	const params = useParams();
 	const router = useRouter();
-	const origin = useOrigin();
 
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
+
+	const { mutate } = useStoreBillboards(params.storeId as string);
 
 	const title = initialData ? "Edit Billboard" : "Create Billboard";
 	const description = initialData
@@ -92,9 +93,10 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
 			await fetch(`/api/${params.storeId}/billboards/${initialData?.id}`, {
 				method: "DELETE",
 			});
-			router.refresh();
+
+			mutate();
 			toast.success("Billboard deleted");
-			router.push("/");
+			router.push(`/${params.storeId}/billboards`);
 		} catch (error) {
 			toast.error(
 				"Make sure you remove all categories using this billboard first",
@@ -181,8 +183,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
 					</Button>
 				</form>
 			</Form>
-
-			<Separator />
 		</>
 	);
 };
