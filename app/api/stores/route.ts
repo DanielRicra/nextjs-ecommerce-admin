@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 		const { name } = await req.json();
 
 		if (!userId) {
-			return NextResponse.json({ error: "Unauthorized" }, { status: 4001 });
+			return NextResponse.json({ error: "Unauthenticated " }, { status: 401 });
 		}
 
 		if (!name) {
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 		console.log("[STORE_POST] ", error);
 		return NextResponse.json(
 			{ error: "Internal Server Error" },
-			{ status: 400 },
+			{ status: 500 },
 		);
 	}
 }

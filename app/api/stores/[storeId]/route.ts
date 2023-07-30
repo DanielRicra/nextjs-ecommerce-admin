@@ -41,7 +41,7 @@ export async function PATCH(
 		console.log("[Store_PATCH] ", error);
 		return NextResponse.json(
 			{ error: "Internal Server Error" },
-			{ status: 400 },
+			{ status: 500 },
 		);
 	}
 }
@@ -75,7 +75,7 @@ export async function DELETE(
 		console.log("[Store_DELETE] ", error);
 		return NextResponse.json(
 			{ error: "Internal Server Error" },
-			{ status: 400 },
+			{ status: 500 },
 		);
 	}
 }
