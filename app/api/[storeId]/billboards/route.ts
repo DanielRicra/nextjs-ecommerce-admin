@@ -70,6 +70,9 @@ export async function GET(
 			where: {
 				storeId: params.storeId,
 			},
+			orderBy: {
+				createdAt: "desc",
+			},
 		});
 
 		return NextResponse.json(billboards, { status: 200 });
