@@ -82,7 +82,7 @@ export async function PATCH(
 		console.log("[BILLBOARD_PATCH] ", error);
 		return NextResponse.json(
 			{ error: "Internal Server Error" },
-			{ status: 400 },
+			{ status: 500 },
 		);
 	}
 }
