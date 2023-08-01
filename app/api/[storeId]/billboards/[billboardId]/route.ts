@@ -67,7 +67,7 @@ export async function PATCH(
 			return errorResponse({ error: "Unauthorized", status: 403 });
 		}
 
-		const updatedStore = await prismadb.billboard.update({
+		const updatedBillboard = await prismadb.billboard.update({
 			where: {
 				id: params.billboardId,
 			},
@@ -77,7 +77,7 @@ export async function PATCH(
 			},
 		});
 
-		return NextResponse.json(updatedStore, { status: 200 });
+		return NextResponse.json(updatedBillboard, { status: 200 });
 	} catch (error) {
 		console.log("[BILLBOARD_PATCH] ", error);
 		return NextResponse.json(
