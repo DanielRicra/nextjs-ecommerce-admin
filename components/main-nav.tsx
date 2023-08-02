@@ -45,13 +45,18 @@ const MainNav = ({
 			active: pathname === `/${params.storeId}/colors`,
 		},
 		{
+			href: `/${params.storeId}/products`,
+			label: "Products",
+			active: pathname === `/${params.storeId}/products`,
+		},
+		{
 			href: `/${params.storeId}/settings`,
 			label: "Settings",
 			active: pathname === `/${params.storeId}/settings`,
 		},
 	];
 	return (
-		<ul className={cn("flex items-center gap-1 lg:gap-2", className)}>
+		<ul className={cn("flex items-center gap-3 lg:gap-4", className)}>
 			{routes.map((route) => (
 				<li key={route.href}>
 					<Link
