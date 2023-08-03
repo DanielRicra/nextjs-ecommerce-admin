@@ -1,20 +1,14 @@
 "use client";
-
-import useStoreModal from "@/hooks/use-store-modal";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const SetUpPage = () => {
-	const onOpen = useStoreModal((state) => state.onOpen);
-	const isOpen = useStoreModal((state) => state.isOpen);
-
+const HomePage = () => {
+	const router = useRouter();
 	useEffect(() => {
-		if (!isOpen) {
-			onOpen();
-		}
-	}, [isOpen, onOpen]);
+		router.push("/store");
+	}, []);
 
-	// We don't have to return anything because only we are using this page to trigger the modal
 	return null;
 };
 
-export default SetUpPage;
+export default HomePage;
