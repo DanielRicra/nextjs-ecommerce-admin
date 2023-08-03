@@ -47,9 +47,17 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
 	const onDelete = async () => {
 		try {
 			setLoading(true);
-			await fetch(`/api/${params.storeId}/billboards/${data?.id}`, {
-				method: "DELETE",
-			});
+			const response = await fetch(
+				`/api/${params.storeId}/billboards/${data?.id}`,
+				{
+					method: "DELETE",
+				},
+			);
+
+			if (!response.ok) {
+				throw new Error("Something went wrong");
+			}
+
 			mutate();
 			toast.success("Billboard deleted");
 		} catch (error) {
