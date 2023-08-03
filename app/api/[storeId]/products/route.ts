@@ -115,7 +115,7 @@ export async function GET(
 				colorId,
 				sizeId,
 				isFeatured: isFeatured === "true" ? true : undefined,
-				isArchived: isArchived === "true" ? true : undefined,
+				isArchived: isArchived === "false" ? false : undefined,
 			},
 			include: { images: true, category: true, color: true, size: true },
 			orderBy: {
