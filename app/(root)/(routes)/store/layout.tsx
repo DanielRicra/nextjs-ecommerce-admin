@@ -1,3 +1,4 @@
+import ProductModalProvider from "@/providers/product-modal-provider";
 import { Urbanist } from "next/font/google";
 import Footer from "./component/footer";
 import Navbar from "./component/store-navbar";
@@ -12,6 +13,7 @@ export const metadata = {
 async function StoreLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className={font.className}>
+			<ProductModalProvider />
 			<Navbar />
 			{children}
 			<Footer />
