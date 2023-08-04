@@ -12,6 +12,9 @@
 			},
 			"suspicious": {
 				"noEmptyInterface": "off"
+			},
+			"a11y": {
+				"useKeyWithClickEvents": "off"
 			}
 		}
 	},
