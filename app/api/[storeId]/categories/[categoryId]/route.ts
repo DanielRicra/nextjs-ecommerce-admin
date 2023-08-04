@@ -4,10 +4,13 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 export async function GET(
-	_req: Request,
+	req: Request,
 	{ params }: { params: { categoryId: string } },
 ) {
 	try {
+		const { searchParams } = new URL(req.url);
+		const addBillboard = searchParams.get("addBillboard") ?? undefined;
+
 		if (!params.categoryId) {
 			return errorResponse({ error: "Category id is required", status: 400 });
 		}
@@ -15,6 +18,9 @@ export async function GET(
 		const category = await prismadb.category.findUnique({
 			where: {
 				id: params.categoryId,
+			},
+			include: {
+				billboard: addBillboard === "true" ? true : false,
 			},
 		});
 
