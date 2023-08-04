@@ -15,7 +15,7 @@ const Billboard: React.FC<BillboardProps> = ({ data }) => {
 			>
 				<div className="h-full w-full flex justify-center items-center gap-y-8">
 					<div
-						className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs"
+						className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs dark:text-black"
 						style={{
 							textShadow:
 								"0 0 7px #fff, 0 0 10px #fff,0 0 12px #fff, 0 0 8px #fff",
